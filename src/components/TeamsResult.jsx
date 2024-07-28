@@ -21,7 +21,7 @@ export default function TeamsResult(props) {
     return players;
   }
 
-    players = randomizePlayers(players)
+  players = randomizePlayers(players);
   return (
     <>
       <div className="w-full">
@@ -29,15 +29,30 @@ export default function TeamsResult(props) {
           Equipos Resultantes
         </h2>
       </div>
-
-      <div className="rounded-md border-green-500 border-2 w-full flex">
-        <div className="w-full">
-          <div className="py-10 border-green-500 border-2 text-center font-semibold text-green-500">{players[0]}</div>
-          <div className="py-10 border-green-500 border-2 text-center font-semibold text-green-500">{players[1]}</div>
-        </div>
-        <div className="w-full">
-          <div className="py-10 border-green-500 border-2 text-center font-semibold text-green-500">{players[2]}</div>
-          <div className="py-10 border-green-500 border-2 text-center font-semibold text-green-500">{players[3]}</div>
+      <div className="w-full flex items-center justify-center">
+        <div className="rounded-md w-96 flex flex-wrap">
+          <div className="w-full md:w-1/2">
+            <p className="text-center text-2xl text-green-500 mb-6 font-bold border-b-2 border-green-500">
+              Equipo 1
+            </p>
+            <p className="text-center text-white pb-2">
+              <span className="font-bold">Derecha:</span> {players[0]}
+            </p>
+            <p className="text-center text-white pb-2">
+              <span className="font-bold">Revés:</span> {players[1]}
+            </p>
+          </div>
+          <div className="w-full md:w-1/2 border-l-0 md:border-l-2 border-green-500">
+            <p className="text-center text-2xl text-green-500 mb-5 font-bold border-b-2 border-green-500">
+              Equipo 2
+            </p>
+            <p className="text-center text-white pb-2">
+              <span className="font-bold">Derecha:</span> {players[2]}
+            </p>
+            <p className="text-center text-white pb-2">
+              <span className="font-bold">Revés:</span> {players[3]}
+            </p>
+          </div>
         </div>
       </div>
     </>
