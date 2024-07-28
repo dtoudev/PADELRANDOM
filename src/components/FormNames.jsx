@@ -86,7 +86,7 @@ export default function FormNames() {
         </form>
       </div>
 
-      <div className="w-full">
+      <div className="w-full px-10 md:px-0">
         {players.length > 0 ? <TeamsResult players={players} /> : ""}
       </div>
     </div>

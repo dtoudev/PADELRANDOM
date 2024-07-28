@@ -24,7 +24,7 @@ export default function TeamsResult(props) {
     players = randomizePlayers(players)
   return (
     <>
-      <div className="w-full px-10 md:px-0">
+      <div className="w-full">
         <h2 className="text-center text-4xl text-green-500 pb-5 font-bold">
           Equipos Resultantes
         </h2>
