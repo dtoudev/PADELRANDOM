@@ -4,7 +4,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 function App() {
   return (
     <>
-     <FormNames/>
+      <FormNames />
+      <SpeedInsights />
     </>
   )
 }
