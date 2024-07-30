@@ -1,8 +1,6 @@
-import React from "react";
+import { useState } from "react";
 
-export default function TeamsResult(props) {
-  let players = props.players;
-
+export default function TeamsResult({ players }) {
   function randomizePlayers(players) {
     let currentIndex = players.length,
       randomIndex;
@@ -21,37 +19,59 @@ export default function TeamsResult(props) {
     return players;
   }
 
-  players = randomizePlayers(players);
+  const [ordenedPlayers] = useState(randomizePlayers(players));
+
   return (
     <>
-      <div className="w-full">
-        <h2 className="text-center text-4xl text-green-500 pb-5 font-bold">
-          Equipos Resultantes
-        </h2>
-      </div>
-      <div className="w-full flex items-center justify-center">
-        <div className="rounded-md w-96 flex flex-wrap">
-          <div className="w-full md:w-1/2">
-            <p className="text-center text-2xl text-green-500 mb-6 font-bold border-b-2 border-green-500">
-              Equipo 1
-            </p>
-            <p className="text-center text-white pb-2">
-              <span className="font-bold">Derecha:</span> {players[0]}
-            </p>
-            <p className="text-center text-white pb-2">
-              <span className="font-bold">Revés:</span> {players[1]}
-            </p>
-          </div>
-          <div className="w-full md:w-1/2 border-l-0 md:border-l-2 border-green-500">
-            <p className="text-center text-2xl text-green-500 mb-5 font-bold border-b-2 border-green-500">
-              Equipo 2
-            </p>
-            <p className="text-center text-white pb-2">
-              <span className="font-bold">Derecha:</span> {players[2]}
-            </p>
-            <p className="text-center text-white pb-2">
-              <span className="font-bold">Revés:</span> {players[3]}
-            </p>
+      <div className="w-[300px] flex items-center justify-center bg-[#2763f7]">
+        <div className="w-full">
+          <div className="border-4  border-White w-full h-96">
+            <div className="h-48 border-b-4 border-white">
+              <div className="h-16 border-b-4 border-white text-white font-semibold uppercase text-2xl flex items-center justify-center">
+                Equipo 1
+              </div>
+              <div className="h-32 flex">
+                <div className="h-full w-1/2 flex flex-col items-center justify-center">
+                  <p className="w-full text-center text-white uppercase font-semibold">
+                    Derecha
+                  </p>
+                  <p className="w-full text-center text-white">
+                    {ordenedPlayers[0]}
+                  </p>
+                </div>
+                <div className="h-full w-1/2 flex flex-col items-center justify-center border-l-4 border-white">
+                  <p className="w-full text-center text-white uppercase font-semibold">
+                    Revés
+                  </p>
+                  <p className="w-full text-center text-white">
+                    {ordenedPlayers[1]}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="h-48">
+              <div className="h-32 flex">
+                <div className="h-full w-1/2 flex flex-col items-center justify-center">
+                  <p className="w-full text-center text-white uppercase font-semibold">
+                    Revés
+                  </p>
+                  <p className="w-full text-center text-white">
+                    {ordenedPlayers[2]}
+                  </p>
+                </div>
+                <div className="h-full w-1/2 flex flex-col items-center justify-center border-l-4 border-white">
+                  <p className="w-full text-center text-white uppercase font-semibold">
+                    Derecha
+                  </p>
+                  <p className="w-full text-center text-white">
+                    {ordenedPlayers[3]}
+                  </p>
+                </div>
+              </div>
+              <div className="h-16 border-t-4 border-white text-white font-semibold uppercase text-2xl flex items-center justify-center">
+                Equipo 2
+              </div>
+            </div>
           </div>
         </div>
       </div>

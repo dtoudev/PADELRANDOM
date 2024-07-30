@@ -24,71 +24,80 @@ export default function FormNames() {
       ]);
     }
   }
+  if (players.length == 0) {
+    return (
+      <>
+        <div className="flex flex-wrap items-center justify-center">
+          <div className="w-full px-10 md:px-0">
+            <form>
+              <div className="w-full mb-10">
+                <h1 className="text-center text-3xl font-bold text-[#2763f7]">
+                  Padel Team Randomizer
+                </h1>
+              </div>
 
-  return (
-    <div className="flex flex-wrap items-center justify-center">
-      <div className="w-full  px-10 md:px-0">
-        <form>
-          <div className="w-full mb-10">
-            <h1 className="text-center text-4xl font-bold text-green-500">
-              Padel Team Randomizer
-            </h1>
+              <div className="w-full flex justify-center items-center gap-4 mb-10">
+                <input
+                  type="text"
+                  name="player1"
+                  id="player1"
+                  ref={player1}
+                  className="rounded-md border-2 border-[#2763f7] h-10 text-center w-full md:w-1/4"
+                  placeholder="Jugador"
+                  required
+                />
+                <input
+                  type="text"
+                  name="player2"
+                  id="player2"
+                  ref={player2}
+                  className="rounded-md border-2 border-[#2763f7] h-10 text-center w-full md:w-1/4"
+                  placeholder="Jugador"
+                  required
+                />
+                <input
+                  type="text"
+                  name="player3"
+                  id="player3"
+                  ref={player3}
+                  className="rounded-md border-2 border-[#2763f7] h-10 text-center w-full md:w-1/4"
+                  placeholder="Jugador"
+                  required
+                />
+                <input
+                  type="text"
+                  name="player4"
+                  id="player4"
+                  ref={player4}
+                  className="rounded-md border-2 border-[#2763f7] h-10 text-center w-full md:w-1/4"
+                  placeholder="Jugador"
+                  required
+                />
+              </div>
+
+              <div className="w-full mb-10">
+                <button
+                  type="button"
+                  className="w-full bg-[#2763f7] rounded-md h-10 text-white px-4"
+                  onClick={handlePlayers}
+                >
+                  {players.length > 0 ? "Genera otra vez" : "Genera equipos"}
+                </button>
+              </div>
+            </form>
           </div>
-
-          <div className="w-full flex justify-center items-center gap-4 mb-10">
-            <input
-              type="text"
-              name="player1"
-              id="player1"
-              ref={player1}
-              className="rounded-md border-2 border-green-500 h-10 text-center w-full md:w-1/4"
-              placeholder="Jugador"
-              required
-            />
-            <input
-              type="text"
-              name="player2"
-              id="player2"
-              ref={player2}
-              className="rounded-md border-2 border-green-500 h-10 text-center w-full md:w-1/4"
-              placeholder="Jugador"
-              required
-            />
-            <input
-              type="text"
-              name="player3"
-              id="player3"
-              ref={player3}
-              className="rounded-md border-2 border-green-500 h-10 text-center w-full md:w-1/4"
-              placeholder="Jugador"
-              required
-            />
-            <input
-              type="text"
-              name="player4"
-              id="player4"
-              ref={player4}
-              className="rounded-md border-2 border-green-500 h-10 text-center w-full md:w-1/4"
-              placeholder="Jugador"
-              required
-            />
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="flex flex-wrap justify-center w-full px-10 md:px-0">
+          <div>
+            <TeamsResult players={players} />
           </div>
-
-          <div className="w-full mb-10">
-            <button
-              type="button"
-              className="w-full bg-green-500 rounded-md h-10 text-white px-4"
-              onClick={handlePlayers}
-            >
-              {players.length > 0 ? "Genera otra vez" : "Genera equipos"}
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div className="w-full px-10 md:px-0">
-        {players.length > 0 ? <TeamsResult players={players} /> : ""}
-      </div>
-    </div>
-  );
+        </div>
+      </>
+    );
+  }
 }
